@@ -1,0 +1,27 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php/$0 [PT,L]
+
+
+#<ifModule mod_headers.c>
+ #ExpiresActive On
+
+  #  Expires after 1 month
+  #<filesMatch ".(gif|png|jpg|jpeg|ico|pdf|htm|html|txt)$">
+   #Header set Cache-Control "max-age=2592000"
+  #</filesMatch>
+    #Expires after 1 day
+#<filesMatch ".(css)$">
+ #   Header set Cache-Control "max-age=86400"
+ #</filesMatch>
+#</ifModule>
+
+#<IfModule mod_deflate.c>
+ # <FilesMatch "\.(js|css)$">
+  #    SetOutputFilter DEFLATE
+  #</FilesMatch>
+  #</IfModule>
+
+AddType image/svg+xml svg svgz
+AddEncoding gzip svgz

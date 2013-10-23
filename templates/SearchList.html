@@ -1,0 +1,22 @@
+<section class="catalogue-list clearfix">
+  <% if(products.length === 0) {%>
+    <%= '<p>No results found</p>' %>
+  <% } %>
+  <% _.each(products, function (product) { %>
+    <article class="product">
+      <div class="image-info">
+        <a href="/catalogue/<%= product.get('ProductId')%>">
+          <img src="/resources/img/product.jpeg" alt="">
+        </a>
+      </div>
+      <div class="text-info">
+        <div class="title">
+          <a href="/catalogue/<%= product.get('ProductId')%>/">
+            <%= product.get('MovieTitle') %>
+          </a>
+        </div>
+        <div class="price">RS. <%= product.get('Price') %></div>
+      </div>
+    </article>
+  <% }) %>
+</section>
